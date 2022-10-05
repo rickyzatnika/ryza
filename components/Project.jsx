@@ -8,7 +8,7 @@ const Project = ({ data }) => {
           My <span>Project</span>
         </h2>
         {data?.projects?.map((project) => (
-          <div key={project.id}>
+          <div key={project.slug}>
             <h2>{project.title}</h2>
           </div>
         ))}

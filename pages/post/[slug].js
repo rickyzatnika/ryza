@@ -5,6 +5,7 @@ import { GraphQLClient, gql } from 'graphql-request';
 import { BsFillArrowLeftCircleFill, BsCalendarDate } from 'react-icons/bs';
 import { FcBusinessman } from 'react-icons/fc';
 import { motion } from 'framer-motion';
+required('dotenv').config();
 
 const graphcms = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT);
 

@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { GraphQLClient, gql } from 'graphql-request';
+required('dotenv').config();
 
 export default function Projects({ projects }) {
   return (
@@ -8,7 +9,7 @@ export default function Projects({ projects }) {
       <section>
         <div className="w-full grid grid-cols-2 gap-20 lg:grid-cols-2 items-center justify-center pt-40 px-40">
           {projects.map((project) => (
-            <div key={project.id}>
+            <div key={project.slug}>
               <Link href={`/project/${project.slug}`} passHref>
                 <a>
                   <div className="w-8/6 overflow-hidden">

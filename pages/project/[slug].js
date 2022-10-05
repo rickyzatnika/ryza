@@ -1,5 +1,5 @@
 import { GraphQLClient, gql } from 'graphql-request';
-import Image from 'next/image';
+required('dotenv').config();
 
 export default function Projects({ project }) {
   return (
