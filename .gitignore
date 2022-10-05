@@ -1,4 +1,6 @@
 # See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+.vscode
+Apikey.js
 
 # dependencies
 /node_modules
@@ -8,7 +10,6 @@
 # testing
 /coverage
 
-/API/Apikey.js
 # next.js
 /.next/
 /out/
