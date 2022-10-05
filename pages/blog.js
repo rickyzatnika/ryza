@@ -9,8 +9,7 @@ import { HiArrowNarrowLeft, HiArrowNarrowRight } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 import { BsCalendarDate } from 'react-icons/bs';
 import { FcBusinessman } from 'react-icons/fc';
-import * as dotenv from 'dotenv';
-dotenv.config();
+import Apikey from '../API/Apikey';
 
 const fetchData = (endpoint, query, variables) =>
   request(endpoint, query, variables);
@@ -21,7 +20,7 @@ export default function Blog({ posts }) {
   const [skip, setSkip] = useState(0);
   const { data, error } = useSWR(
     [
-      process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT,
+      Apikey,
       `
     query getPaginateBlogs($skip: Int) {
       postsConnection(orderBy: updatedAt_DESC, first: 4, skip: $skip) {
@@ -171,7 +170,7 @@ export default function Blog({ posts }) {
 
 export const getStaticProps = async () => {
   const data = await fetchData(
-    process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT,
+    Apikey,
     `
     query getPaginateBlogs {
       postsConnection(orderBy: updatedAt_DESC, first: 4, skip: 0) {

@@ -1,6 +1,5 @@
 import { GraphQLClient, gql } from 'graphql-request';
-import * as dotenv from 'dotenv';
-dotenv.config();
+import Apikey from '../../API/Apikey';
 
 export default function Projects({ project }) {
   return (
@@ -14,7 +13,7 @@ export default function Projects({ project }) {
   );
 }
 
-const graphcms = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT);
+const graphcms = new GraphQLClient(Apikey);
 const QUERY = gql`
   query Projects($slug: String!) {
     project(where: { slug: $slug }) {

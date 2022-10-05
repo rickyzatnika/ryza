@@ -1,8 +1,7 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { GraphQLClient, gql } from 'graphql-request';
-import * as dotenv from 'dotenv';
-dotenv.config();
+import Apikey from '../API/Apikey';
 
 export default function Projects({ projects }) {
   return (
@@ -66,7 +65,7 @@ const QUERY = gql`
   }
 `;
 
-const graphcms = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT);
+const graphcms = new GraphQLClient(Apikey);
 export async function getStaticProps() {
   const { projects } = await graphcms.request(QUERY);
 

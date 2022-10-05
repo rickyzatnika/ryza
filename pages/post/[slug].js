@@ -5,10 +5,9 @@ import { GraphQLClient, gql } from 'graphql-request';
 import { BsFillArrowLeftCircleFill, BsCalendarDate } from 'react-icons/bs';
 import { FcBusinessman } from 'react-icons/fc';
 import { motion } from 'framer-motion';
-import * as dotenv from 'dotenv';
-dotenv.config();
+import Apikey from '../../API/Apikey';
 
-const graphcms = new GraphQLClient(process.env.NEXT_PUBLIC_GRAPHCMS_ENDPOINT);
+const graphcms = new GraphQLClient(Apikey);
 
 const QUERY = gql`
   query Post($slug: String!) {
