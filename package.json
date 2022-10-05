@@ -12,6 +12,7 @@
     "@emailjs/browser": "^3.7.0",
     "@zeit/next-css": "^1.0.1",
     "animate.css": "^4.1.1",
+    "dotenv": "^16.0.3",
     "framer-motion": "^7.4.0",
     "graphql": "^16.6.0",
     "graphql-request": "^5.0.0",
