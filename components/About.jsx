@@ -14,17 +14,18 @@ const About = () => {
 
   return (
     <>
-      <div className="px-6 sm:px-10 md:px-20 lg:px-24 max-w-[1240px] m-auto grid grid-cols-1 lg:grid-cols-12 gap-20 items-center box-border">
+      <div className="px-6 sm:px-10 md:px-20 lg:px-24 max-w-[1240px] m-auto grid grid-cols-1 lg:grid-cols-12 gap-20 items-center box-border overflow-x-hidden">
         <div className="col-span-1 lg:col-span-8 mb-10">
           <motion.div
             initial={{ rotate: '20deg', opacity: 0 }}
             whileInView={{ rotate: 0, opacity: 1 }}
             transition={{
               duration: 0.8,
-              delay: 0.2,
+              delay: 0.4,
               ease: 'easeInOut',
               type: 'spring',
-              damping: 5,
+              stiffness: 400,
+              damping: 10,
             }}
           >
             <p className="uppercase text-xl tracking-widest text-blue-600 font-semibold">
@@ -34,13 +35,14 @@ const About = () => {
           </motion.div>
           <motion.div
             className="flex flex-col gap-4"
-            initial={{ scale: 0, opacity: 0 }}
+            initial={{ y: '40%', scale: 0, opacity: 0 }}
             whileInView={{
-              scale: 1,
               opacity: 1,
+              y: 0,
+              scale: 1,
               transition: {
-                duration: 0.6,
-                delay: 0.3,
+                duration: 0.4,
+                ease: 'linear',
                 dumping: 50,
               },
             }}

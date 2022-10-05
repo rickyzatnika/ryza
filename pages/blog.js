@@ -92,15 +92,17 @@ export default function Blog({ posts }) {
                   </Link>
                   <div className="overflow-hidden">
                     <Link href={`/post/${item.node.slug}`} passHref>
-                      <Image
-                        src={item.node.coverPhoto.url}
-                        alt={item.node.slug}
-                        width={75}
-                        height={50}
-                        layout="responsive"
-                        className="hover:scale-125 transition-all duration-300 cursor-pointer"
-                        priority
-                      />
+                      <a>
+                        <Image
+                          src={item.node.coverPhoto.url}
+                          alt={item.node.slug}
+                          width={75}
+                          height={50}
+                          layout="responsive"
+                          className="hover:scale-125 transition-all duration-300 cursor-pointer"
+                          priority
+                        />
+                      </a>
                     </Link>
                   </div>
                   <p className="text-gray-500 leading-relaxed mt-2 p-2 ">
@@ -109,13 +111,15 @@ export default function Blog({ posts }) {
                 </div>
                 <div className="mt-4 py-4 relative">
                   <Link href={`/post/${item.node.slug}`} passHref>
-                    <button
-                      className=" capitalize text-md text-gray-500 hover:text-gray-700 flex gap-1 hover:gap-4 transition-all duration-300 items-center "
-                      type="button"
-                    >
-                      read more
-                      <AiOutlineArrowRight />
-                    </button>
+                    <a>
+                      <button
+                        className=" capitalize text-md text-gray-500 hover:text-gray-700 flex gap-1 hover:gap-4 transition-all duration-300 items-center "
+                        type="button"
+                      >
+                        read more
+                        <AiOutlineArrowRight />
+                      </button>
+                    </a>
                   </Link>
                 </div>
               </div>

@@ -1,9 +1,9 @@
-import Link from "next/link";
-import React from "react";
-import Clock from "react-live-clock";
-import { BsInstagram, BsFacebook, BsLinkedin, BsGithub } from "react-icons/bs";
-import Typwriter from "typewriter-effect";
-import { motion } from "framer-motion";
+import Link from 'next/link';
+import React from 'react';
+import Clock from 'react-live-clock';
+import { BsInstagram, BsFacebook, BsLinkedin, BsGithub } from 'react-icons/bs';
+import Typwriter from 'typewriter-effect';
+import { motion } from 'framer-motion';
 
 const MobileNav = ({ open, setOpen }) => {
   const closeMenu = () => setOpen(false);
@@ -13,7 +13,7 @@ const MobileNav = ({ open, setOpen }) => {
       <div
         onClick={closeMenu}
         className={` navSide md:hidden fixed left-0 top-0 w-full h-screen backdrop-blur-sm bg-black/80 ${
-          open ? "-translate-x-0 opacity-100" : "-translate-x-full opacity-0"
+          open ? '-translate-x-0 opacity-100' : '-translate-x-full opacity-0'
         } transition-translate duration-200 ease-in`}
       >
         <div
@@ -27,12 +27,12 @@ const MobileNav = ({ open, setOpen }) => {
                   whileInView={{ scale: 1, opacity: 1 }}
                   transition={{
                     duration: 0.8,
-                    ease: "easeInOut",
+                    ease: 'easeInOut',
                   }}
                   className="mobile__logo shadow-lg shadow-gray-400 px-6 p-2 w-fit m-auto"
                 >
                   <Clock
-                    format={"h:mm:ssa"}
+                    format={'h:mm:ssa'}
                     ticking={true}
                     className="text-xl text-transparent bg-clip-text bg-gradient-to-r from-slate-100 to-slate-300 font-semibold"
                   />
@@ -41,18 +41,18 @@ const MobileNav = ({ open, setOpen }) => {
             </Link>
 
             <motion.div
-              initial={{ y: "-100%", scale: 0, opacity: 0 }}
+              initial={{ y: '-100%', scale: 0, opacity: 0 }}
               whileInView={{ y: 0, scale: 1, opacity: 1 }}
               transition={{
                 duration: 0.9,
                 delay: 0.4,
-                ease: "easeInOut",
+                ease: 'easeInOut',
               }}
               className="type text-center border-b border-gray-400 font-semibold tracking-wider text-md"
             >
               <Typwriter
                 options={{
-                  strings: ["-Let`s Work Together-"],
+                  strings: ['-Let`s Work Together-'],
                   autoStart: true,
                   loop: true,
                   delay: 80,
@@ -74,7 +74,7 @@ const MobileNav = ({ open, setOpen }) => {
             <li>
               <Link href="/" passHref>
                 <motion.a
-                  initial={{ x: "-40%", opacity: 0 }}
+                  initial={{ x: '-40%', opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.2, delay: 0.1 }}
                   className=" mobile"
@@ -87,7 +87,7 @@ const MobileNav = ({ open, setOpen }) => {
             <li>
               <Link href="/about" passHref>
                 <motion.a
-                  initial={{ x: "-60%", opacity: 0 }}
+                  initial={{ x: '-60%', opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.4, delay: 0.2 }}
                   className=" mobile"
@@ -98,9 +98,22 @@ const MobileNav = ({ open, setOpen }) => {
             </li>
 
             <li>
+              <Link href="/project" passHref>
+                <motion.a
+                  initial={{ x: '-60%', opacity: 0 }}
+                  whileInView={{ x: 0, opacity: 1 }}
+                  transition={{ duration: 0.4, delay: 0.2 }}
+                  className=" mobile"
+                >
+                  Project
+                </motion.a>
+              </Link>
+            </li>
+
+            <li>
               <Link href="/blog" passHref>
                 <motion.a
-                  initial={{ x: "-80%", opacity: 0 }}
+                  initial={{ x: '-80%', opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.6, delay: 0.3 }}
                   className=" mobile"
@@ -113,7 +126,7 @@ const MobileNav = ({ open, setOpen }) => {
             <li>
               <Link href="/contact" passHref>
                 <motion.a
-                  initial={{ x: "-100%", opacity: 0 }}
+                  initial={{ x: '-100%', opacity: 0 }}
                   whileInView={{ x: 0, opacity: 1 }}
                   transition={{ duration: 0.8, delay: 0.4 }}
                   className=" mobile"
@@ -126,7 +139,7 @@ const MobileNav = ({ open, setOpen }) => {
 
           <div className="flex flex-col gap-8">
             <motion.div
-              initial={{ y: "-20%", opacity: 0 }}
+              initial={{ y: '-20%', opacity: 0 }}
               whileInView={{ y: 0, opacity: 1 }}
               transition={{ duration: 0.4, delay: 0.2 }}
               className="text-center "
@@ -136,7 +149,7 @@ const MobileNav = ({ open, setOpen }) => {
               </p>
             </motion.div>
             <motion.div
-              initial={{ x: "-100%", opacity: 0 }}
+              initial={{ x: '-100%', opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.6, delay: 0.3 }}
               className="flex flex-row gap-2 sm:gap-8 justify-center items-center "

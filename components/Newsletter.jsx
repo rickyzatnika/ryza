@@ -1,9 +1,9 @@
-import React, { useEffect, useRef, useState } from "react";
-import { motion } from "framer-motion";
-import emailjs from "@emailjs/browser";
-import { Parallax } from "react-scroll-parallax";
-import Swal from "sweetalert2";
-import withReactContent from "sweetalert2-react-content";
+import React, { useEffect, useRef, useState } from 'react';
+import { motion } from 'framer-motion';
+import emailjs from '@emailjs/browser';
+import { Parallax } from 'react-scroll-parallax';
+import Swal from 'sweetalert2';
+import withReactContent from 'sweetalert2-react-content';
 
 const MySwal = withReactContent(Swal);
 
@@ -14,28 +14,28 @@ const Newsletter = () => {
     e.preventDefault();
     emailjs
       .sendForm(
-        "service_o73yere",
-        "template_1p3osy5",
+        'service_o73yere',
+        'template_1p3osy5',
         form.current,
-        "5vaJZbWp1t2cHaM4G"
+        '5vaJZbWp1t2cHaM4G'
       )
       .then(
         (result) => {
           console.log(result.text);
           e.target.reset();
           Swal.fire({
-            title: "Success",
-            text: "Thanks for subscribe",
-            icon: "success",
+            title: 'Success',
+            text: 'Thanks for subscribe',
+            icon: 'success',
           });
         },
         (errors) => {
           console.log(errors.text);
           e.target.reset();
           Swal.fire({
-            icon: "error",
-            title: "Oops...",
-            text: "Something went wrong!",
+            icon: 'error',
+            title: 'Oops...',
+            text: 'Something went wrong!',
             footer: '<a href="">come back letter</a>',
           });
         }
@@ -46,13 +46,13 @@ const Newsletter = () => {
     <>
       <section>
         <Parallax speed={-10}>
-          <div className="w-full h-full pt-4 leading-relaxed antialiased overflow-x-hidden">
+          <div className="w-full h-full pt-4 shadow-xl  rounded-lg p-4 leading-relaxed antialiased overflow-x-hidden">
             <motion.div
-              initial={{ x: "30%", opacity: 0 }}
+              initial={{ x: '30%', opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{
                 duration: 0.5,
-                ease: "easeInOut",
+                ease: 'easeInOut',
                 delay: 0.1,
               }}
               className="mb-4  p-2"
@@ -64,11 +64,11 @@ const Newsletter = () => {
               </p>
             </motion.div>
             <motion.div
-              initial={{ x: "50%", opacity: 0 }}
+              initial={{ x: '50%', opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{
                 duration: 0.9,
-                ease: "easeInOut",
+                ease: 'easeInOut',
                 delay: 0.2,
               }}
               className="w-full rounded-md bg-slate-100/10 p-6 shadow-xl text-center"

@@ -4,12 +4,22 @@ import { motion } from 'framer-motion';
 function Skillbar() {
   return (
     <>
-      <div className="mb-8 md:mb-10">
+      <motion.div
+        initial={{ y: '30%', opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="mb-8 md:mb-10"
+      >
         <h3 className="text-xl md:text-2xl text-center -tracking-wide">
           Basic of <span className="text-blue-600">Web Development</span> Skills
         </h3>
-      </div>
-      <div className="relative bg-[rgba(0,0,0,0.125)] rounded-md p-4 px-8 leading-relaxed shadow-xl rounded-8">
+      </motion.div>
+      <motion.div
+        initial={{ y: '40%', opacity: 0 }}
+        whileInView={{ y: 0, opacity: 1 }}
+        transition={{ duration: 0.6, delay: 0.2 }}
+        className="relative bg-[rgba(0,0,0,0.125)] rounded-md p-4 px-8 leading-relaxed shadow-xl rounded-8"
+      >
         <div className="w-full my-6">
           <span className="block font-medium antialiased">
             <p className="skillBarTitle font-semibold text-neutral-800">
@@ -134,7 +144,7 @@ function Skillbar() {
             </motion.span>
           </div>
         </div>
-      </div>
+      </motion.div>
     </>
   );
 }

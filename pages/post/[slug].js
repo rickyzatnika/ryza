@@ -61,14 +61,6 @@ export async function getStaticPaths() {
 export default function Post({ post }) {
   return (
     <>
-      <Head>
-        <title>AweSome Portfolio & Blog site</title>
-        <meta
-          name="description"
-          content="building with nextjs and tailwindcss"
-        />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <section>
         <div className="relative pt-20 w-screen md:w-[75%] flex flex-col justify-center m-auto px-8 md:px-20 space-y-2">
           <h1>{post.title}</h1>
