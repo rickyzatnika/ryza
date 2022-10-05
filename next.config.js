@@ -4,7 +4,12 @@ const nextConfig = {
   reactStrictMode: true,
   swcMinify: true,
   images: {
-    domains: ["media.graphcms.com", "media.graphassets.com"],
+    domains: ['media.graphcms.com', 'media.graphassets.com'],
+  },
+
+  webpack: (config) => {
+    config.resolve.fallback = { fs: false };
+    return config;
   },
 };
 

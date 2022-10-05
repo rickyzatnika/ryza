@@ -9,7 +9,8 @@ import { HiArrowNarrowLeft, HiArrowNarrowRight } from 'react-icons/hi';
 import { motion } from 'framer-motion';
 import { BsCalendarDate } from 'react-icons/bs';
 import { FcBusinessman } from 'react-icons/fc';
-required('dotenv').config();
+import * as dotenv from 'dotenv';
+dotenv.config();
 
 const fetchData = (endpoint, query, variables) =>
   request(endpoint, query, variables);
