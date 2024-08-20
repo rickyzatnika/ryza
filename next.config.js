@@ -7,10 +7,10 @@ const nextConfig = {
     domains: ['media.graphcms.com', 'media.graphassets.com'],
   },
 
-  webpack: (config) => {
-    config.resolve.fallback = { fs: false };
-    return config;
-  },
+  // webpack: (config) => {
+  //   config.resolve.fallback = { fs: false };
+  //   return config;
+  // },
 };
 
 module.exports = nextConfig;

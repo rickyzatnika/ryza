@@ -12,14 +12,14 @@ const MobileNav = ({ open, setOpen }) => {
     <>
       <div
         onClick={closeMenu}
-        className={` navSide md:hidden fixed left-0 top-0 w-full h-screen backdrop-blur-sm bg-black/80 ${
+        className={`  md:hidden overlays fixed left-0 top-0 w-full h-screen backdrop-blur-sm bg-black/90 ${
           open ? '-translate-x-0 opacity-100' : '-translate-x-full opacity-0'
         } transition-translate duration-200 ease-in`}
       >
         <div
-          className={` navSide_Menu fixed justify-evenly gap-20 flex flex-col top-0 left-0 w-[75%] sm:w-[60%] md:w-[45%] h-full bg-[#ecf0f3]  duration-200 ease-in p-10`}
+          className={` navSide_Menu fixed justify-evenly gap-10 flex flex-col top-0 left-0 w-[75%] sm:w-[60%] md:w-[45%] h-full bg-[#101010]  duration-200 ease-in p-10`}
         >
-          <div className="flex flex-col gap-10">
+          <div className="flex flex-col  gap-4">
             <Link href="/" passHref>
               <a>
                 <motion.div
@@ -29,12 +29,12 @@ const MobileNav = ({ open, setOpen }) => {
                     duration: 0.8,
                     ease: 'easeInOut',
                   }}
-                  className="mobile__logo shadow-lg shadow-gray-400 px-6 p-2 w-fit m-auto"
+                  className="mobile__logo shadow-md shadow-gray-700 px-6  p-2 w-fit m-auto"
                 >
                   <Clock
                     format={'h:mm:ssa'}
                     ticking={true}
-                    className="text-xl text-transparent bg-clip-text bg-gradient-to-r from-slate-100 to-slate-300 font-semibold"
+                    className="text-xl font-mono text-transparent bg-clip-text bg-gradient-to-r from-slate-100 to-slate-300 font-semibold"
                   />
                 </motion.div>
               </a>
@@ -48,7 +48,7 @@ const MobileNav = ({ open, setOpen }) => {
                 delay: 0.4,
                 ease: 'easeInOut',
               }}
-              className="type text-center border-b border-gray-400 font-semibold tracking-wider text-md"
+              className="font-[Roboto] typewriter text-center text-[#909090]  border-b border-gray-400 font-semibold tracking-wider text-xs"
             >
               <Typwriter
                 options={{
@@ -70,7 +70,7 @@ const MobileNav = ({ open, setOpen }) => {
             </motion.div>
           </div>
 
-          <ul className="uppercase w-fit flex flex-col justify-center space-y-10">
+          <ul className="uppercase   w-fit flex flex-col justify-center space-y-4">
             <li>
               <Link href="/" passHref>
                 <motion.a
@@ -144,7 +144,7 @@ const MobileNav = ({ open, setOpen }) => {
               transition={{ duration: 0.4, delay: 0.2 }}
               className="text-center "
             >
-              <p className="antialiased title_sosmed text-md text-neutral-600 ">
+              <p className="antialiased font-mono text-md text-[#949494] ">
                 Connect With Me
               </p>
             </motion.div>

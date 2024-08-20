@@ -2,7 +2,6 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/router';
 import Link from 'next/link';
 import MobileNav from './MobileNav';
-import DarkMode from '../DarkMode';
 import Logo from '../Logo';
 import { motion } from 'framer-motion';
 
@@ -13,7 +12,7 @@ const Navbar = () => {
   // Hide On Scroll Navbar
   const [show, setShow] = useState(false);
   function NavbarControl() {
-    if (window.scrollY > 270) {
+    if (window.scrollY > 120) {
       setShow(true);
     } else {
       setShow(false);
@@ -32,7 +31,7 @@ const Navbar = () => {
         className={` flex fixed px-10 sm:px-20 left-0 right-0 top-0 w-full items-center justify-evenly z-[100]  ${
           !show
             ? 'nav_colors'
-            : 'nav__color backdrop-blur-sm shadow-md shadow-slate-800 bg-[#050f2be5] transition-all duration-300 h-[5rem] '
+            : 'nav__color backdrop-blur-md shadow-md  bg-[#100F0F]/80 transition-all duration-300 h-[5rem] '
         }`}
         initial={{ y: '-150%', opacity: 0 }}
         animate={{ y: '0', opacity: 1 }}
@@ -52,17 +51,23 @@ const Navbar = () => {
           >
             <span
               className={`h-1 w-full bg-blend-color bg-white rounded-lg transform transition duration-300 ease-in-out ${
-                open ? 'rotate-45 translate-y-2.5 ' : ''
+                open
+                  ? 'rotate-45 translate-y-2.5 transition-all duration-700 delay-100 ease-linear '
+                  : ''
               }`}
             ></span>
             <span
-              className={`h-1 w-6 bg-blend-color bg-blue-400 rounded-lg transform transition duration-300 ease-in-out ${
-                open ? 'w-0 opacity-0' : ''
+              className={`h-1 w-full top-0 bg-blend-color bg-white rounded-lg transform transition duration-300 ease-in-out ${
+                open
+                  ? '-translate-y-80 transition-all duration-1000 ease-linear'
+                  : ''
               }`}
             ></span>
             <span
               className={`h-1 w-full bg-blend-color bg-white rounded-lg transform transition duration-300 ease-in-out ${
-                open ? '-rotate-45 -translate-y-2.5 ' : ''
+                open
+                  ? '-rotate-45 -translate-y-2.5 transition-all duration-700 delay-100 ease-linear '
+                  : ''
               }`}
             ></span>
           </div>
@@ -71,7 +76,7 @@ const Navbar = () => {
               whileTap={{ cursor: 'grabbing', scale: 1.2 }}
               className="navLink"
             >
-              <Link href="/" passHref={true}>
+              <Link href="/" passHref>
                 <a
                   id="1"
                   className={`text-neutral-500 ${
@@ -86,7 +91,7 @@ const Navbar = () => {
               whileTap={{ cursor: 'grabbing', scale: 1.2 }}
               className="navLink"
             >
-              <Link href="/about" passHref={true}>
+              <Link href="/about" passHref>
                 <a
                   id="2"
                   className={`text-neutral-50 ${
@@ -102,7 +107,7 @@ const Navbar = () => {
               whileTap={{ cursor: 'grabbing', scale: 1.2 }}
               className="navLink"
             >
-              <Link href="/project" passHref={true}>
+              <Link href="/project" passHref>
                 <a
                   id="2"
                   className={`text-neutral-50 ${
@@ -118,7 +123,7 @@ const Navbar = () => {
               whileTap={{ cursor: 'grabbing', scale: 1.2 }}
               className="navLink"
             >
-              <Link href="/blog" passHref={true}>
+              <Link href="/blog" passHref>
                 <a
                   id="3"
                   className={`text-neutral-50 ${
@@ -130,10 +135,13 @@ const Navbar = () => {
               </Link>
             </motion.li>
             <motion.li
-              whileTap={{ cursor: 'grabbing', scale: 1.2 }}
+              whileTap={{
+                cursor: 'grabbing',
+                scale: 1.2,
+              }}
               className="navLink"
             >
-              <Link href="/contact" passHref={true}>
+              <Link href="/contact" passHref>
                 <a
                   id="4"
                   className={`text-neutral-50 ${
@@ -145,7 +153,6 @@ const Navbar = () => {
               </Link>
             </motion.li>
           </ul>
-          <DarkMode />
         </div>
       </motion.nav>
     </>

@@ -1,13 +1,15 @@
-import Navbar from './Navigation/Navbar';
+// import Navbar from './Navigation/Navbar';
 import Footer from './Footer';
 import ScrollTop from './ScrollTop';
-import Head from 'next/head';
+import dynamic from 'next/dynamic';
+
+const Navbar = dynamic(() => import('./Navigation/Navbar'));
 
 const Layout = ({ children }) => {
   return (
     <>
       <Navbar />
-      {children}
+      <main>{children}</main>
       <ScrollTop />
       <Footer />
     </>

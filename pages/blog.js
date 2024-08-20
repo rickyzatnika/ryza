@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 import { useRouter } from 'next/router';
 import request from 'graphql-request';
 import useSWR from 'swr';
@@ -7,9 +7,8 @@ import Link from 'next/link';
 import { AiOutlineArrowRight } from 'react-icons/ai';
 import { HiArrowNarrowLeft, HiArrowNarrowRight } from 'react-icons/hi';
 import { motion } from 'framer-motion';
-import { BsCalendarDate } from 'react-icons/bs';
-import { FcBusinessman } from 'react-icons/fc';
 import Apikey from '../API/Apikey';
+import Head from 'next/head';
 
 const fetchData = (endpoint, query, variables) =>
   request(endpoint, query, variables);
@@ -49,12 +48,23 @@ export default function Blog({ posts }) {
   );
   return (
     <>
+      <Head>
+        <title>Ryza - Blogpage</title>
+        <meta
+          name="description"
+          content="Javascript is the programming language that makes the internet work. More specifically, Javascript is a lightweight, dynamic programming language that can target both oriented and functional programming."
+        />
+        <meta
+          name="keywords"
+          content="Ryza blog, Javascript is the programming language , Portfolio Web, Ryza Portfolio, Frontend Developer, Web Developer, Personal Blog Website"
+        />
+      </Head>
       <section>
         <div className="flex sm:hidden gap-2 pt-[4rem] px-6 ">
-          <Link href="/" passHref>
+          <Link href="/" passHref prefetch={false}>
             <a className="italic text-gray-500">home / </a>
           </Link>
-          <Link href="/blog" passHref>
+          <Link href="/blog" passHref prefetch={false}>
             <a
               className={`${
                 router.pathname === '/blog'
@@ -67,32 +77,34 @@ export default function Blog({ posts }) {
           </Link>
         </div>
         <motion.div
-          initial={{ x: '-100%', opacity: 0 }}
-          animate={{ x: 0, opacity: 1 }}
+          initial={{ y: '100%' }}
+          animate={{ y: 0 }}
           transition={{
-            type: 'spring',
-            stiffness: 100,
-            damping: 20,
+            duration: 1,
+            damping: 50,
+            delay: 0.2,
           }}
           className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-0 pt-[3rem] sm:pt-40"
         >
-          {data?.postsConnection?.edges.map((item) => (
-            <div key={item.id} className="grid grid-cols-1 md:grid-cols-4 py-6">
-              <div className="md:col-span-1  items-center p-3 leading-relaxed">
-                <span className="flex items-center gap-2 mb-3">
-                  <FcBusinessman size={22} />
-                  <p className="text-gray-500 text-sm">Ricky</p>
-                </span>
-              </div>
-              <div className="md:col-span-3 px-4 shadow-lg py-2">
+          {data?.postsConnection?.edges.map((item, i) => (
+            <div key={i} className="py-6">
+              <div className="md:col-span-3 px-4 shadow-xl shadow-black/20 py-2 group scale-95">
                 <div className="flex flex-col">
-                  <Link href={`/post/${item.node.slug}`} passHref>
-                    <a className="text-xl mb-4 sm:text-2xl md:text-2xl blogTitle font-bold capitalize text-slate-800 hover:text-gray-600 transition-colors duration-200">
+                  <Link
+                    href={`/post/${item.node.slug}`}
+                    passHref
+                    prefetch={false}
+                  >
+                    <a className="text-xl mb-4 sm:text-2xl md:text-2xl font-mono blogTitle font-bold capitalize text-slate-800 hover:text-gray-600 transition-colors duration-200">
                       {item.node.title}
                     </a>
                   </Link>
-                  <div className="overflow-hidden">
-                    <Link href={`/post/${item.node.slug}`} passHref>
+                  <div className="overflow-hidden group">
+                    <Link
+                      href={`/post/${item.node.slug}`}
+                      passHref
+                      prefetch={false}
+                    >
                       <a>
                         <Image
                           src={item.node.coverPhoto.url}
@@ -100,21 +112,25 @@ export default function Blog({ posts }) {
                           width={75}
                           height={50}
                           layout="responsive"
-                          className="hover:scale-125 transition-all duration-300 cursor-pointer"
+                          className="brightness-[40%] group group-hover:scale-125 group-hover:brightness-[100%] hover:brightness-[100%] hover:scale-125 transition-all duration-1000  ease-linear cursor-pointer"
                           priority
                         />
                       </a>
                     </Link>
                   </div>
-                  <p className="text-gray-500 leading-relaxed mt-2 p-2 ">
+                  <p className="text-[#7e7d7d] leading-relaxed mt-2 p-2 ">
                     {item.node.description}
                   </p>
                 </div>
-                <div className="mt-4 py-4 relative">
-                  <Link href={`/post/${item.node.slug}`} passHref>
+                <div className="mt-4 py-4 relative ">
+                  <Link
+                    href={`/post/${item.node.slug}`}
+                    passHref
+                    prefetch={false}
+                  >
                     <a>
                       <button
-                        className=" capitalize text-md text-gray-500 hover:text-gray-700 flex gap-1 hover:gap-4 transition-all duration-300 items-center "
+                        className=" capitalize text-md group group-hover  text-[#7e7d7d] hover:text-gray-300 flex gap-1 hover:gap-4 transition-all duration-300 items-center "
                         type="button"
                       >
                         read more
@@ -128,34 +144,34 @@ export default function Blog({ posts }) {
           ))}
           <div>
             <div className="flex justify-between items-center p-8">
-              <div className="flex items-center gap-2 cursor-pointer justify-center text-gray-500">
-                <HiArrowNarrowLeft />
+              <div className="flex items-center gap-4 cursor-pointer justify-center text-[#7e7d7d]  group group-hover:text-gray-300 group-hover:left-0 hover:text-gray-300">
+                <HiArrowNarrowLeft className="group relative left-2 group-hover:left-0 hover:left-0 transition-all duration-150" />
                 <button
                   type="button"
                   disabled={!data?.postsConnection?.pageInfo?.hasPreviousPage}
                   onClick={() => {
                     setSkip(skip - 4);
                   }}
-                  className="cursor-pointer "
+                  className="cursor-pointer group"
                 >
                   previous
                 </button>
               </div>
-              <div className="flex items-center gap-2 cursor-pointer justify-center text-gray-500">
+              <div className="flex items-center gap-4 cursor-pointer justify-center text-[#7e7d7d]  group group-hover:text-gray-300 group-hover:right-0 hover:text-gray-300">
                 <button
                   type="button"
                   disabled={!data?.postsConnection?.pageInfo?.hasNextPage}
                   onClick={() => {
                     setSkip(skip + 4);
                   }}
-                  className="cursor-pointer "
+                  className="cursor-pointer group"
                 >
                   next
                 </button>
-                <HiArrowNarrowRight />
+                <HiArrowNarrowRight className="group relative right-2 group-hover:right-0 hover:right-0 transition-all duration-150" />
               </div>
             </div>
-            <div className="mt-8 text-center">
+            <div className="mt-8 text-center text-sm text-[#7e7d7d]">
               Total Pages : {data?.postsConnection.pageInfo.pageSize}
             </div>
           </div>
@@ -197,5 +213,6 @@ export const getStaticProps = async () => {
     props: {
       posts: data,
     },
+    revalidate: 1,
   };
 };
